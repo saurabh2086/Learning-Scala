@@ -59,3 +59,16 @@ printByFiveFunction(5,50)
 *4) Write a function that takes a milliseconds value and returns a string describing the value in days, hours, minutes and seconds. 
 What’s the optimal type for the input value?*
 
+**Answer**
+ ```javascript
+def miliConv(t: Int) = {
+    val days = t/86400000
+    val hour = (t - days * 86400000) / 3600000
+    val minute = (t - 86400000 * days - 3600000 * hour) / 60000
+    val sec =  (t- 86400000 * days - 3600000 * hour - 60000 * minute)/ 1000
+    s"Days $days, Hours: $hour Minutes: $minute, Seconds: $sec "
+}
+
+print(miliConv(100864000))
+Days 1, Hours: 4 Minutes: 1, Seconds: 4
+ ```
