@@ -19,3 +19,37 @@ applying max function literal to higher order function
 scala> maximize((34,32,65),max)                                                 
 res0: Int = 65
 ```
+*2) The library function util.Random.nextInt returns a random integer. Use it to invoke the "max" function with two random integers plus a function that returns the larger of two given integers. Do the same with a function that returns the smaller of two given integers, and then a function that returns the second integer every time.*
+
+**Answer**
+Creating a rand function to generate random number 
+```javascript
+scala> def rand() = util.Random.nextInt                                         
+rand: ()Int
+```
+Creating a general function on which we can apply max min and pick seond function
+```javascript
+scala> def utilFunction(t: (Int,Int), f:(Int,Int)=>Int) = f(t._1,t._2)          
+utilFunction: (t: (Int, Int), f: (Int, Int) => Int)Int                          
+```
+get a tuple 
+```javascript
+scala> val t = (rand,rand)                                                      
+t: (Int, Int) = (-611942706,-233909952)
+```
+applying max function thtat is defined in the previous example
+```javascript
+scala> utilFunction(t,max)                                                      
+res4: Int = -233909952                                                          
+```
+Lets pass other functions as function literals
+Applying min
+```javascript
+scala> utilFunction(t,(a: Int,b: Int) => if (a < b) a else b)                   
+res5: Int = -611942706                                                          
+```
+applying the pick second function
+```javascript
+scala> utilFunction(t,(a: Int,b: Int) => b)                                     
+res7: Int = -233909952                                                          
+```
