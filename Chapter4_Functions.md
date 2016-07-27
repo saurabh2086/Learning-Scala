@@ -72,3 +72,21 @@ def miliConv(t: Int) = {
 print(miliConv(100864000))
 Days 1, Hours: 4 Minutes: 1, Seconds: 4
  ```
+*5) Write a function that calculates the first value raised to the exponent of the second value. Try writing this first using math.pow, then with your own calculation. Did you implement it with variables? Is there a solution available that only uses immutable data? Did you choose a numeric type that is large enough for your uses?*
+
+**Answer**
+Using math.pow is a very easy implementation
+```javascript
+def power(x: Double, y: Double): Double = math.pow(x,y)
+print(power(2,3))
+8.0
+```
+Second implementation without using the immutable data
+```javascript
+@annotation.tailrec
+def power(x: BigInt, y:BigInt, a: BigInt = 1): BigInt = if(y == 0) a else power(x,y-1,a * x) 
+print(power(3,2))
+9
+```
+Do i have numeric type large enough
+I guess I have :P
