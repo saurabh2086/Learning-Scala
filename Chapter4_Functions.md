@@ -90,3 +90,32 @@ print(power(3,2))
 ```
 Do i have numeric type large enough
 I guess I have :P
+
+*Q6)Write a function that calculates the difference between a pair of 2d points (x and y) and returns the result as a point. Hint: this would be a good use for tuples.*
+
+**Answer**
+I have used Integer tuples 
+```javascript
+def difference(p1: (Int, Int), p2:(Int,Int)): (Int, Int) = {
+  (p2._1 - p1._1, p2._2 - p1._2)
+}
+
+println(difference((1,2),(2,1)))
+(1,-1)
+```
+Q7)Write a function that takes a 2-sized tuple and returns it with the Int value (if included) in the first position. Hint: this would be a good use for type parameters and the isInstanceOf type operation.
+
+**Answer**
+```javascript
+def intFirst[A,B](t: (A,B)): (Any,Any) = if(t._2.isInstanceOf[Int]) (t._2,t._1) else t
+                  
+println(intFirst((2,"string")))
+println(intFirst(("string",2)))
+println(intFirst((2.0,2)))
+println(intFirst((2,2.0)))
+
+(2,string)
+(2,string)
+(2,2.0)
+(2,2.0)
+```
