@@ -119,3 +119,12 @@ println(intFirst((2,2.0)))
 (2,2.0)
 (2,2.0)
 ```
+*8) Write a function that takes a 3-sized tuple and returns a 6-sized tuple, with each original parameter followed by its String representation. For example, invoking the function with (true, 22.25, "yes") should return (true, "true", 22.5, "22.5", "yes", "yes"). Can you ensure that tuples of all possible types are compatible with your function? When you invoke this function, can you do so with explicit types not only in the function result but in the value that you use to store the result?*
+
+**Answer**
+```javascript
+def expandTuple[A,B,C](t:(A,B,C)): (A,String,B,String,C,String) = (t._1,t._1.toString,t._2,t._2.toString,t._3,t._3.toString)
+
+println(expandTuple('a',2,false))
+println(expandTuple(true,22.25,"yes"))
+```
