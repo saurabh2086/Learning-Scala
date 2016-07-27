@@ -53,3 +53,17 @@ applying the pick second function
 scala> utilFunction(t,(a: Int,b: Int) => b)                                     
 res7: Int = -233909952                                                          
 ```
+*3) Write a higher-order function that takes an integer and returns a function. The returned function should take a single integer argument (say, "x") and return the product of x and the integer passed to the higher-order function.*
+
+**Answer**\
+I am applying *currying* here
+```javascript
+scala> def productOf(x:Int)(y:Int) = x * y                                      
+productOf: (x: Int)(y: Int)Int                                                  
+```
+Lets test this
+```javascript
+scala> val doubler = productOf(2)_                                              
+doubler: Int => Int = <function1>                                               
+
+```
