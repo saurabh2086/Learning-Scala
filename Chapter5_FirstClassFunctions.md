@@ -135,5 +135,19 @@ scala> conditional(5,(x:Int) =>  x > 5, (y:Int) => y * 3)
 res11: Int = 5                                                                  
                                                                                 
 scala> conditional(6,(x:Int) =>  x > 5, (y:Int) => y * 3)                       
-res12: Int = 18                                                                 
+res12: Int = 18  
+
+scala> conditional[Int](6, _ > 5, _ * 3)                                        
+res16: Int = 18                                                                 
+                                                                                
+scala> conditional[Int](3, _ > 5, _ * 3)                                        
+res17: Int = 3                                                                  
 ```
+*7) Do you recall the "typesafe" challenge from the exercises in [expressions_ch]? There is a popular coding interview question I’ll call "typesafe", in which the numbers 1 - 100 must be printed one per line. The catch is that multiples of 3 must replace the number with the word "type", while multiples of 5 must replace the number with the word "safe". Of course, multiples of 15 must print "typesafe".*
+
+*Use the "conditional" function from exercise 6 to implement this challenge.*
+
+*Would your solution be shorter if the return type of "conditional" did not match the type of the parameter x? Experiment with an altered version of the "conditional" function that works better with this challenge.*
+
+**Answer**
+
