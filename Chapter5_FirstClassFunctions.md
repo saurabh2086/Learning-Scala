@@ -67,3 +67,24 @@ scala> val doubler = productOf(2)_
 doubler: Int => Int = <function1>                                               
 
 ```
+*4) Let’s say that you happened to run across this function while reviewing another developer’s code:
+```
+def fzero[A](x: A)(f: A ⇒ Unit): A = { f(x); x }
+```
+What does this function accomplish? Can you give an example of how you might invoke it?*
+
+**Answer**
+As we can see this is an example of a higher order function. It applies currying in whic we a re passing a functino literal with Unit return type. Unit return type generally tells us that there is nothing interesting is beign returned.
+Example
+```javascript
+scala> def fzero[A](x:A)(f: A => Unit):A = {f(x); x}                            
+fzero: [A](x: A)(f: A => Unit)A                                                 
+
+scala> val reversePrint = fzero("Saurabh")_                                     
+reversePrint: (String => Unit) => String = <function1>                          
+
+scala> reversePrint(x => println(x.reverse))                                    
+hbaruaS                                                                         
+res1: String = Saurabh                                                          
+
+```
