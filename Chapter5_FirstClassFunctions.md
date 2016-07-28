@@ -129,5 +129,11 @@ sq: Double => Double = <function1>
 scala> def conditional[A](x: A, p: A => Boolean, f: A => A) = {                 
      | if(p(x)) f(x) else x                                                     
      | }                                                                        
-conditional: [A](x: A, p: A => Boolean, f: A => A)A                             
+conditional: [A](x: A, p: A => Boolean, f: A => A)A   
+
+scala> conditional(5,(x:Int) =>  x > 5, (y:Int) => y * 3)                       
+res11: Int = 5                                                                  
+                                                                                
+scala> conditional(6,(x:Int) =>  x > 5, (y:Int) => y * 3)                       
+res12: Int = 18                                                                 
 ```
