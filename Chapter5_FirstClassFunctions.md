@@ -88,3 +88,38 @@ hbaruaS
 res1: String = Saurabh                                                          
 
 ```
+*5) There’s a function named "square" that you would like to store in a function value. Is this the right way to do it? How else can you store a function in a value?*
+```
+def square(m: Double) = m * m
+val sq = square
+```
+**Answer**
+This is not the way to assign function value 
+if you try this you would get following error
+```javascript
+scala> val sq = square                                                          
+<console>:11: error: missing arguments for method square;                       
+follow this method with `_' if you want to treat it as a partially applied funct
+ion                                                                             
+       val sq = square                                                          
+                ^                                                               
+```
+
+There are many ways to assign function value
+Following are few 
+
+Function Literal
+```javascript
+scala> val sq = (m: Double) => m * m                                            
+sq: Double => Double = <function1>                                              
+```
+```javascript
+scala> val sq: (Double) => Double = square                                      
+sq: Double => Double = <function1>                                              
+```
+Using wildcard operator
+```javascript
+scala> val sq = square _                                                        
+sq: Double => Double = <function1>
+```
+
