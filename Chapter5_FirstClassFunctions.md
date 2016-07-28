@@ -150,4 +150,23 @@ res17: Int = 3
 *Would your solution be shorter if the return type of "conditional" did not match the type of the parameter x? Experiment with an altered version of the "conditional" function that works better with this challenge.*
 
 **Answer**
+It is possible to use the conditional function but you have to be a little tricky
+```javascript
+scala> for( i <- 1 to 100){                                                     
+     | val a1 = conditional[Int](i, i => i % 15 == 0, i => {println("typesafe");
+ -1})                                                                           
+     | val a2 = conditional[Int](i, i => i % 5 == 0, i => {println("safe"); -1})
+                                                                                
+     | val a3 = conditional[Int](i, i => i % 3 == 0, i => {println("type"); -1})
+                                                                                
+     | if(a1 > 0 && a2 > 0 && a3 > 0) println(i)                                
+     | }                                                                        
+1                                                                               
+2                                                                               
+type                                                                            
+4                                                                               
+safe                                                                            
+type 
+```
+another Answer could be 
 
