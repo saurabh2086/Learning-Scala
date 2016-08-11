@@ -17,3 +17,10 @@ res11: List[Int] = List(1, 3, 5, 7, 9, 11, 13, 15, 17, 19)
 scala> (0 to 9).map( _ * 2 + 1).toList                                          
 res13: List[Int] = List(1, 3, 5, 7, 9, 11, 13, 15, 17, 19)                      
 ```
+*2) Write a function titled "factors" that takes a number and returns a list of its factors, other than 1 and the number itself. For example, factors(15) should return List(3, 5).*
+```javascript
+scala> def factors(n: Int) = {                                                  
+     | (2 to n-1).filter(n % _ == 0).toList                                     
+     | }                                                                        
+factors: (n: Int)List[Int]                                                      
+```
