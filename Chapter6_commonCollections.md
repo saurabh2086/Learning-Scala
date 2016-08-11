@@ -38,7 +38,6 @@ factors: (n: List[Int])List[Int]
 scala> factors(List(9,11,13,15))                                                
 res7: List[Int] = List(3, 3, 5)                                                 
 ```
-
 Another version wen you do not pass list of numbers but more than 1 number 
 ```javascript
 scala> def factors(n: Int*) = {                                                 
@@ -48,5 +47,36 @@ factors: (n: Int*)List[Int]
 
 scala> factors(9,11,13,15)                                                      
 res6: List[Int] = List(3, 3, 5)                                                 
+```
+*3) Write a function, first[A](items: List[A], count: Int): List[A], that returns the first x number of items in a given list. For example, first(List('a','t','o'), 2) should return List('a','t'). You could make this a one-liner by invoking one of the built-in list operations that already performs this task, or (preferably) implement your own solution. Can you do so with a for-loop? With foldLeft? With a recursive function that only accessed head and tail?*
+
+**Answer**
+We can use `take` from the built in function 
+```javascript
+scala> def first[A](items: List[A], count: Int): List[A] = items.take(count)    
+first: [A](items: List[A], count: Int)List[A]                                   
+```
+*Using for loop*
+```javascript
+scala> def first[A](items: List[A], count: Int): List[A] = {                    
+     | (for(i <- 0 to count -1 ) yield items(i)).toList                         
+     | }                                                                        
+first: [A](items: List[A], count: Int)List[A]                                   
+                                                                                
+scala> first(List("a","b","c"),2)                                               
+res0: List[String] = List(a, b)                                                 
+```
+*Using foldLeft*
+While uisng Fold we have to define the type of list for the leftFold function
+```javascript
+scala> def first[A](items: List[A], count: Int): List[A] = {                    
+     | items.foldLeft[List[A]](Nil){(a: List[A], i: A) =>                       
+     | if(a.size > count) a else i :: a                                         
+     | }                                                                        
+     | }                                                                        
+first: [A](items: List[A], count: Int)List[A]                                   
+                                                                                
+scala> first(List("a", "b", "c", "d"),3)                                        
+res1: List[String] = List(d, c, b, a)                                           
 ```
 
