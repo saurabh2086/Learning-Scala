@@ -28,3 +28,25 @@ scala> def factors(n: Int) = {
      | }                                                                        
 factors: (n: Int)List[Int]                                                      
 ```
+Applying function to a listof numbers
+```javascript
+scala> def factors(n: List[Int]) = {                                            
+     | n.flatMap(x => (2 to x-1).filter(y => x % y == 0).toList).toList         
+     | }                                                                        
+factors: (n: List[Int])List[Int]                                                
+                                                                                
+scala> factors(List(9,11,13,15))                                                
+res7: List[Int] = List(3, 3, 5)                                                 
+```
+
+Another version wen you do not pass list of numbers but more than 1 number 
+```javascript
+scala> def factors(n: Int*) = {                                                 
+     | n.flatMap(x => (2 to x-1).filter(y => x % y == 0).toList).toList         
+     | }                                                                        
+factors: (n: Int*)List[Int] 
+
+scala> factors(9,11,13,15)                                                      
+res6: List[Int] = List(3, 3, 5)                                                 
+```
+
