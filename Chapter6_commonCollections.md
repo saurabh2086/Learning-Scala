@@ -151,3 +151,17 @@ findPalindrome: (lst: List[String])(List[String], List[String])
 scala> findPalindrome(strings)
 res43: (List[String], List[String]) = (List(asdfghgfdsa, rammar),List(peter, kalia))
 ```
+*7) The last exercise in this chapter is a multi-part problem. We’ll be reading and processing a forecast from the excellent and free OpenWeatherMap API.
+
+To read content from the url we’ll use the Scala library operation io.Source.fromURL(url: String), which returns an io.Source instance. Then we’ll reduce the source to a collection of individual lines using the getLines.toList operation. Here is an example of using io.Source to read content from a url, separate it into lines and return the result as a list of strings.*
+`scala> val l: List[String] = io.Source.fromURL(url).getLines.toList`
+*Here is the url we will use to retrieve the weather forecast, in XML format.*
+`scala> val url =  "http://api.openweathermap.org/data/2.5/forecast?mode=xml&lat=55&lon=0"`
+*Go ahead and read this url into a list of strings. Once you have it, print out the first line to verify you’ve captured an xml file. The result should look pretty much like this:*
+```
+scala> println( l(0) )
+<?xml version="1.0" encoding="utf-8"?>
+```
+If you don’t see an xml header, make sure that your url is correct and your internet connection is up.
+
+Let’s begin working with this List[String] containing the xml document.
