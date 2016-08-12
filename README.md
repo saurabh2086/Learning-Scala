@@ -1,2 +1,2 @@
 # Learning-Scala
-This is SOlutions for book learning scala
+These are Solutions for the book learning scala
