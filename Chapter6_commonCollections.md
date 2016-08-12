@@ -115,4 +115,14 @@ longestString: (str: List[String])String
 scala> longestString(List("robert", "lion", "peter"))
 res35: String = robert
 ```
+Applying this function for any list 
+```javascript
+scala> def largeOne[A](lst: List[A], large: (A,A) => A): A = {
+     | lst.reduce(large)
+     | }
+largeOne: [A](lst: List[A], large: (A, A) => A)A
+
+scala> largeOne[String](names, (x,y) => if(x.length > y.length) x else y)
+res41: String = tamatar
+```
 
