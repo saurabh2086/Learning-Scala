@@ -125,4 +125,18 @@ largeOne: [A](lst: List[A], large: (A, A) => A)A
 scala> largeOne[String](names, (x,y) => if(x.length > y.length) x else y)
 res41: String = tamatar
 ```
+*6) Write a function that takes a List[String] and returns a (List[String],List[String]), a tuple of string lists. The first list should be items in the original list that are palindromes (written the same forwards and backwards, like "racecar"). The second list in the tuple should be all of the remaining items from the original list. You can implement this easily with partition, but are there other operations you could use instead?*
 
+**Answer**
+```javascript
+scala> def findPelindrome(lst: List[String]):(List[String], List[String]) = {
+     | lst.partition(x => x == x.reverse)
+     | }
+findPelindrome: (lst: List[String])(List[String], List[String])
+
+scala> val strings = List("asdfghgfdsa","peter", "kalia","rammar")
+strings: List[String] = List(asdfghgfdsa, peter, kalia, rammar)
+
+scala> findPelindrome(strings)
+res42: (List[String], List[String]) = (List(asdfghgfdsa, rammar),List(peter, kalia))
+```
