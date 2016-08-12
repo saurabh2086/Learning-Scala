@@ -129,14 +129,14 @@ res41: String = tamatar
 
 **Answer**
 ```javascript
-scala> def findPelindrome(lst: List[String]):(List[String], List[String]) = {
+scala> def findPalindrome(lst: List[String]):(List[String], List[String]) = {
      | lst.partition(x => x == x.reverse)
      | }
-findPelindrome: (lst: List[String])(List[String], List[String])
+findPalindrome: (lst: List[String])(List[String], List[String])
 
 scala> val strings = List("asdfghgfdsa","peter", "kalia","rammar")
 strings: List[String] = List(asdfghgfdsa, peter, kalia, rammar)
 
-scala> findPelindrome(strings)
+scala> findPalindrome(strings)
 res42: (List[String], List[String]) = (List(asdfghgfdsa, rammar),List(peter, kalia))
 ```
