@@ -140,3 +140,14 @@ strings: List[String] = List(asdfghgfdsa, peter, kalia, rammar)
 scala> findPalindrome(strings)
 res42: (List[String], List[String]) = (List(asdfghgfdsa, rammar),List(peter, kalia))
 ```
+Other that partition we can use groupby method 
+```javascript
+scala> def findPalindrome(lst: List[String]):(List[String], List[String]) = {
+     | val groups = lst.groupBy(x => x == x.reverse)
+     | (groups(true), groups(false))
+     | }
+findPalindrome: (lst: List[String])(List[String], List[String])
+
+scala> findPalindrome(strings)
+res43: (List[String], List[String]) = (List(asdfghgfdsa, rammar),List(peter, kalia))
+```
