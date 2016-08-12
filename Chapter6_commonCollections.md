@@ -91,4 +91,28 @@ println(first(List(1,2,3,4,5,6),3))
 
 List(1, 2, 3)
 ```
+*4) Write a function that takes a list of strings and returns the longest string in the list. Can you avoid using mutable variables here? This is an excellent candidate for the list-folding operations we studied. Can you implement this with both fold and reduce ? Would your function be more useful if it took a function parameter that compared two strings and returned the preferred one? How about if this function was applicable to generic lists, ie lists of any type?*
+
+**Answer**
+Using Fold 
+```javascript
+scala> def longestString(str: List[String]): String = {
+     | str.fold(""){ (x,y) => if(x.length > y.length) x else y}
+     | }
+longestString: (str: List[String])String
+
+scala> longestString(List("ram", "shayam", "ghanshayam")
+     | )
+res31: String = ghanshayam
+```
+Using reduce
+```javascript
+scala> def longestString(str: List[String]): String = {
+     | str.reduce{(x,y) => if(x.length > y.length) x else y}
+     | }
+longestString: (str: List[String])String
+
+scala> longestString(List("robert", "lion", "peter"))
+res35: String = robert
+```
 
