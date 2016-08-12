@@ -79,9 +79,8 @@ first: [A](items: List[A], count: Int)List[A]
 scala> first(List("a", "b", "c", "d"),3)                                        
 res1: List[String] = List(d, c, b, a)                                           
 ```
-*A tails recursion using just head and tail function*
+*A  recursive function using just head and tail function*
 ```javascript
-@tailrec
 def first[A](items: List[A], count: Int): List[A] = {
     if(count > 0) { 
         items.head :: first(items.tail, count-1)
