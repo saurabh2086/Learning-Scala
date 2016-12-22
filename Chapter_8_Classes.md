@@ -14,6 +14,7 @@ c) Now its time for games. Create a game class that includes the name, maker, an
 d) Test out this game class by generating a list of games, each containing one or more instances of consoles. Can you convert this list to a lookup table of consoles to a list of supported games? How about a function that prints a list of the games, sorted first by maker and then by game name?
 
 *Answer*
+
 following is my strategy
 1. The make and model can be a `String`
 2. The debutDate is of type java.util.Date
